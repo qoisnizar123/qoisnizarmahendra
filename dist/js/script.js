@@ -51,3 +51,14 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
 } else {
   darkToggle.checked = true;
 }
+
+// kontak saya
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzIHU1JvzBwwegoiFn7kQ7BtnaMYkDnG6ghF7KYJ4ao6x32zVLjNJtxaJzWEeY-PWHT/exec';
+const form = document.forms['kontak-saya'];
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+    .then((response) => console.log('Success!', response))
+    .catch((error) => console.error('Error!', error.message));
+});
